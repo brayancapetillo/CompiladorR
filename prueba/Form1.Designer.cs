@@ -545,7 +545,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Textascompile.BackColor = System.Drawing.Color.White;
             this.Textascompile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Textascompile.ForeColor = System.Drawing.Color.White;
+            this.Textascompile.ForeColor = System.Drawing.Color.Black;
             this.Textascompile.Location = new System.Drawing.Point(10, 50);
             this.Textascompile.Name = "Textascompile";
             this.Textascompile.Size = new System.Drawing.Size(524, 228);

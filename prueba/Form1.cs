@@ -91,5 +91,7 @@ namespace prueba
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        
     }
 }
