@@ -26,6 +26,7 @@ namespace prueba
         {
 
         }
+        //nota
         private void CustomizeDesing()
         {
             PBAsubmenu.Visible = false;
