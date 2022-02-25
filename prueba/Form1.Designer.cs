@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Sbar = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnMinimize = new System.Windows.Forms.Button();
@@ -36,18 +35,19 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.panelogo = new System.Windows.Forms.Panel();
             this.SlideBar = new System.Windows.Forms.Panel();
+            this.darkorlight = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Compilar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.BtnArchive = new System.Windows.Forms.Button();
             this.PBAsubmenu = new System.Windows.Forms.Panel();
+            this.BtnClear = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnSaveas = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnOpen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.gradientPanel1 = new prueba.GradientPanel();
             this.gradientPanel4 = new prueba.GradientPanel();
             this.ViewRes = new System.Windows.Forms.DataGridView();
@@ -62,6 +62,8 @@
             this.gradientPanel2 = new prueba.GradientPanel();
             this.Textascompile = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Sbar.SuspendLayout();
             this.SlideBar.SuspendLayout();
             this.PBAsubmenu.SuspendLayout();
@@ -159,8 +161,9 @@
             // SlideBar
             // 
             this.SlideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.SlideBar.Controls.Add(this.darkorlight);
             this.SlideBar.Controls.Add(this.button3);
-            this.SlideBar.Controls.Add(this.button2);
+            this.SlideBar.Controls.Add(this.Compilar);
             this.SlideBar.Controls.Add(this.button1);
             this.SlideBar.Controls.Add(this.Edit);
             this.SlideBar.Controls.Add(this.BtnArchive);
@@ -169,6 +172,25 @@
             this.SlideBar.Name = "SlideBar";
             this.SlideBar.Size = new System.Drawing.Size(1154, 40);
             this.SlideBar.TabIndex = 1;
+            // 
+            // darkorlight
+            // 
+            this.darkorlight.AutoSize = true;
+            this.darkorlight.BackColor = System.Drawing.Color.Transparent;
+            this.darkorlight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.darkorlight.CheckAlign = System.Drawing.ContentAlignment.TopRight;
+            this.darkorlight.FlatAppearance.BorderSize = 0;
+            this.darkorlight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.darkorlight.ForeColor = System.Drawing.Color.Snow;
+            this.darkorlight.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.darkorlight.Location = new System.Drawing.Point(712, 13);
+            this.darkorlight.Name = "darkorlight";
+            this.darkorlight.Size = new System.Drawing.Size(62, 19);
+            this.darkorlight.TabIndex = 7;
+            this.darkorlight.Text = "oscuro";
+            this.darkorlight.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.darkorlight.UseVisualStyleBackColor = false;
+            this.darkorlight.CheckedChanged += new System.EventHandler(this.darkorlight_CheckedChanged);
             // 
             // button3
             // 
@@ -184,19 +206,20 @@
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // Compilar
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::prueba.Properties.Resources.play;
-            this.button2.Location = new System.Drawing.Point(270, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 30);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Compilar";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.Compilar.FlatAppearance.BorderSize = 0;
+            this.Compilar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Compilar.ForeColor = System.Drawing.Color.White;
+            this.Compilar.Image = global::prueba.Properties.Resources.play;
+            this.Compilar.Location = new System.Drawing.Point(270, 5);
+            this.Compilar.Name = "Compilar";
+            this.Compilar.Size = new System.Drawing.Size(80, 30);
+            this.Compilar.TabIndex = 5;
+            this.Compilar.Text = "Compilar";
+            this.Compilar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Compilar.UseVisualStyleBackColor = true;
+            this.Compilar.Click += new System.EventHandler(this.Compilar_Click);
             // 
             // button1
             // 
@@ -244,6 +267,7 @@
             // PBAsubmenu
             // 
             this.PBAsubmenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.PBAsubmenu.Controls.Add(this.BtnClear);
             this.PBAsubmenu.Controls.Add(this.BtnExit);
             this.PBAsubmenu.Controls.Add(this.BtnSaveas);
             this.PBAsubmenu.Controls.Add(this.BtnSave);
@@ -251,16 +275,32 @@
             this.PBAsubmenu.Controls.Add(this.label1);
             this.PBAsubmenu.Location = new System.Drawing.Point(15, 0);
             this.PBAsubmenu.Name = "PBAsubmenu";
-            this.PBAsubmenu.Size = new System.Drawing.Size(182, 108);
+            this.PBAsubmenu.Size = new System.Drawing.Size(182, 125);
             this.PBAsubmenu.TabIndex = 0;
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnClear.FlatAppearance.BorderSize = 0;
+            this.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClear.ForeColor = System.Drawing.Color.LightGray;
+            this.BtnClear.Location = new System.Drawing.Point(0, 75);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.BtnClear.Size = new System.Drawing.Size(182, 25);
+            this.BtnClear.TabIndex = 4;
+            this.BtnClear.Text = "Limpiar";
+            this.BtnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // BtnExit
             // 
-            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnExit.FlatAppearance.BorderSize = 0;
             this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnExit.ForeColor = System.Drawing.Color.LightGray;
-            this.BtnExit.Location = new System.Drawing.Point(0, 75);
+            this.BtnExit.Location = new System.Drawing.Point(0, 100);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.BtnExit.Size = new System.Drawing.Size(182, 25);
@@ -284,6 +324,7 @@
             this.BtnSaveas.Text = "Guardar como...";
             this.BtnSaveas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSaveas.UseVisualStyleBackColor = true;
+            this.BtnSaveas.Click += new System.EventHandler(this.BtnSaveas_Click);
             // 
             // BtnSave
             // 
@@ -299,6 +340,7 @@
             this.BtnSave.Text = "Guardar...";
             this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnOpen
             // 
@@ -314,6 +356,7 @@
             this.BtnOpen.Text = "Abrir";
             this.BtnOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnOpen.UseVisualStyleBackColor = true;
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // label1
             // 
@@ -330,15 +373,11 @@
             this.label1.Text = "Codigo a Compilar:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // gradientPanel1
             // 
             this.gradientPanel1.Angle = 90F;
             this.gradientPanel1.AutoScroll = true;
+            this.gradientPanel1.BackColor = System.Drawing.Color.White;
             this.gradientPanel1.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.gradientPanel1.Controls.Add(this.gradientPanel4);
             this.gradientPanel1.Controls.Add(this.PBAsubmenu);
@@ -379,6 +418,7 @@
             this.ViewRes.RowTemplate.Height = 25;
             this.ViewRes.Size = new System.Drawing.Size(1093, 142);
             this.ViewRes.TabIndex = 4;
+            this.ViewRes.Tag = "";
             // 
             // Btnresults
             // 
@@ -545,6 +585,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Textascompile.BackColor = System.Drawing.Color.White;
             this.Textascompile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Textascompile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Textascompile.ForeColor = System.Drawing.Color.Black;
             this.Textascompile.Location = new System.Drawing.Point(10, 50);
             this.Textascompile.Name = "Textascompile";
@@ -565,6 +606,10 @@
             this.label2.Text = "Codigo a Compilar:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -581,6 +626,7 @@
             this.Sbar.ResumeLayout(false);
             this.Sbar.PerformLayout();
             this.SlideBar.ResumeLayout(false);
+            this.SlideBar.PerformLayout();
             this.PBAsubmenu.ResumeLayout(false);
             this.PBAsubmenu.PerformLayout();
             this.gradientPanel1.ResumeLayout(false);
@@ -600,10 +646,9 @@
         private Panel SlideBar;
         private Button BtnArchive;
         private Button button3;
-        private Button button2;
+        private Button Compilar;
         private Button button1;
         private Button Edit;
-        private ContextMenuStrip contextMenuStrip1;
         private Panel PBAsubmenu;
         private Button BtnExit;
         private Button BtnSaveas;
@@ -628,5 +673,10 @@
         private Button Btnmaximized;
         private Button BtnClose;
         private Label label3;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private Button BtnClear;
+        private CheckBox darkorlight;
+
     }
 }
