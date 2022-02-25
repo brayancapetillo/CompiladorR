@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Sbar = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnMinimize = new System.Windows.Forms.Button();
@@ -47,7 +46,6 @@
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnOpen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.gradientPanel1 = new prueba.GradientPanel();
             this.gradientPanel4 = new prueba.GradientPanel();
             this.ViewRes = new System.Windows.Forms.DataGridView();
@@ -62,6 +60,8 @@
             this.gradientPanel2 = new prueba.GradientPanel();
             this.Textascompile = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Sbar.SuspendLayout();
             this.SlideBar.SuspendLayout();
             this.PBAsubmenu.SuspendLayout();
@@ -299,6 +299,7 @@
             this.BtnSave.Text = "Guardar...";
             this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnOpen
             // 
@@ -314,6 +315,7 @@
             this.BtnOpen.Text = "Abrir";
             this.BtnOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnOpen.UseVisualStyleBackColor = true;
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // label1
             // 
@@ -329,11 +331,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo a Compilar:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // gradientPanel1
             // 
@@ -565,6 +562,10 @@
             this.label2.Text = "Codigo a Compilar:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -603,7 +604,6 @@
         private Button button2;
         private Button button1;
         private Button Edit;
-        private ContextMenuStrip contextMenuStrip1;
         private Panel PBAsubmenu;
         private Button BtnExit;
         private Button BtnSaveas;
@@ -628,5 +628,7 @@
         private Button Btnmaximized;
         private Button BtnClose;
         private Label label3;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
     }
 }

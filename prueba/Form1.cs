@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace prueba 
@@ -92,6 +93,61 @@ namespace prueba
             this.WindowState = FormWindowState.Minimized;
         }
 
-        
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog1.Title = "Abrir";
+                openFileDialog1.ShowDialog();
+
+                if (File.Exists(openFileDialog1.FileName))
+                {
+                    leer(openFileDialog1.FileName);
+                }
+            }catch (Exception)
+            {
+                MessageBox.Show("el Archivo no se abrio correctamente");
+            }
+        }
+
+        private void leer(string fileName)
+        {
+            try
+            {
+                StreamReader sr = new StreamReader(fileName, System.Text.Encoding.Default);
+                Textascompile.Text = sr.ReadToEnd();
+                sr.Close();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("el Archivo no se abrio correctamente");
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(saveFileDialog1.FileName))
+                    {
+                        StreamWriter sw = File.CreateText(saveFileDialog1.FileName);
+                        sw.WriteLine(Textascompile.Text);
+                        sw.Flush();
+                        sw.Close();
+                    }
+                    else
+                    {
+                        StreamWriter sw = File.CreateText(saveFileDialog1.FileName);
+                        sw.WriteLine(Textascompile.Text);
+                        sw.Flush();
+                        sw.Close();
+                    }
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show("no pos no");
+            }
+        }
     }
 }
