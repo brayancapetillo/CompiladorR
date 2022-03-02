@@ -176,7 +176,16 @@ namespace prueba
 
         private void Compilar_Click(object sender, EventArgs e)
         {
-            remarcar(archivo);
+            if(archivo != " ")
+            {
+                remarcar(archivo);
+            }
+            else
+            {
+                BtnSaveas_Click(sender, e);
+                showsubmenu(PBAsubmenu);
+            }
+            
         }
 
         public void remarcar(string archivo)
