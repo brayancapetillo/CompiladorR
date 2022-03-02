@@ -281,6 +281,7 @@ namespace prueba
                 if (archivo != " ")
                 {
                     remarcar(archivo);
+
                 }
             }
            
