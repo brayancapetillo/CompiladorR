@@ -55,6 +55,7 @@
             this.BtnError = new prueba.RJbutton();
             this.gradientPanel3 = new prueba.GradientPanel();
             this.viewsourcecompile = new System.Windows.Forms.DataGridView();
+            this.Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnSource = new prueba.RJbutton();
             this.Btnsemantic = new prueba.RJbutton();
             this.Btnsyntactic = new prueba.RJbutton();
@@ -478,16 +479,25 @@
             // 
             // viewsourcecompile
             // 
+            this.viewsourcecompile.AccessibleDescription = "";
             this.viewsourcecompile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.viewsourcecompile.BackgroundColor = System.Drawing.Color.White;
             this.viewsourcecompile.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewsourcecompile.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Linea});
             this.viewsourcecompile.Location = new System.Drawing.Point(10, 50);
             this.viewsourcecompile.Name = "viewsourcecompile";
             this.viewsourcecompile.RowTemplate.Height = 25;
             this.viewsourcecompile.Size = new System.Drawing.Size(524, 228);
             this.viewsourcecompile.TabIndex = 4;
+            // 
+            // Linea
+            // 
+            this.Linea.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Linea.HeaderText = "Linea";
+            this.Linea.Name = "Linea";
             // 
             // BtnSource
             // 
@@ -564,6 +574,7 @@
             this.Btnlexic.Text = "Lexico";
             this.Btnlexic.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(72)))), ((int)(((byte)(74)))));
             this.Btnlexic.UseVisualStyleBackColor = false;
+            this.Btnlexic.Click += new System.EventHandler(this.Btnlexic_Click);
             // 
             // gradientPanel2
             // 
@@ -589,7 +600,7 @@
             this.Textascompile.ForeColor = System.Drawing.Color.Black;
             this.Textascompile.Location = new System.Drawing.Point(10, 50);
             this.Textascompile.Name = "Textascompile";
-            this.Textascompile.Size = new System.Drawing.Size(524, 228);
+            this.Textascompile.Size = new System.Drawing.Size(524, 230);
             this.Textascompile.TabIndex = 1;
             this.Textascompile.Text = "";
             // 
@@ -664,9 +675,7 @@
         private RJbutton BtnSource;
         private RJbutton Btnsemantic;
         private RJbutton Btnsyntactic;
-        private DataGridView viewsourcecompile;
         private GradientPanel gradientPanel4;
-        private DataGridView ViewRes;
         private RJbutton Btnresults;
         private RJbutton BtnError;
         private Button BtnMinimize;
@@ -677,7 +686,8 @@
         private SaveFileDialog saveFileDialog1;
         private Button BtnClear;
         private CheckBox darkorlight;
-
-
+        private DataGridView ViewRes;
+        private DataGridView viewsourcecompile;
+        private DataGridViewTextBoxColumn Linea;
     }
 }

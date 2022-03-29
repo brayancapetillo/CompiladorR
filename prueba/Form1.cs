@@ -179,6 +179,8 @@ namespace prueba
             if(archivo != " ")
             {
                 remarcar(archivo);
+                BtnSave_Click(sender, e);
+                showsubmenu(PBAsubmenu);
             }
             else
             {
@@ -296,5 +298,23 @@ namespace prueba
            
         }
 
+        private void Btnlexic_Click(object sender, EventArgs e)
+        {
+            viewsourcecompile.Rows.Clear();
+
+            if (archivo != " ")
+            {
+                StreamReader sr = new StreamReader(archivo);
+                while (!sr.EndOfStream)
+                {
+                    viewsourcecompile.Rows.Add(sr.ReadLine());
+                }
+                sr.Close();
+            }
+            else
+            {
+                MessageBox.Show("no juan");
+            }
+        }
     }
 }
