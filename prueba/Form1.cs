@@ -181,6 +181,7 @@ namespace prueba
                 remarcar(archivo);
                 BtnSave_Click(sender, e);
                 showsubmenu(PBAsubmenu);
+                lexico();
             }
             else
             {
@@ -315,6 +316,50 @@ namespace prueba
             {
                 MessageBox.Show("no juan");
             }
+        }
+
+        private void lexico()
+        {
+            viewsourcecompile.Rows.Clear();
+
+            if (archivo != " ")
+            {
+                string result = ExecuteCommand("java Main " + archivo.ToString());
+
+                string[] array = result.Split("\n");
+                foreach (string item in array)
+                {
+                    viewsourcecompile.Rows.Add(item);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("no juan");
+            }
+        }
+
+        static string ExecuteCommand(string command)
+        {
+            //Indicamos que deseamos inicializar el proceso cmd.exe junto con un comando de arranque.
+            //(/C le indicamos al proceso cms que deseamos que cuando rermine la tarea asignada se cierre el proceso).
+            // Consultar la ayuda de consola con cmd.exe
+
+            System.Diagnostics.ProcessStartInfo processStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/c " + command);
+            //Indicamos que la salida del proceso se redireccione a un Stream
+            processStartInfo.RedirectStandardOutput = true;
+            processStartInfo.UseShellExecute = false;
+            // Indica que el proceso no despliegue una pantalla negra, (El proceso se ejecuta en background)
+            processStartInfo.CreateNoWindow = true;
+            //Inicializa el proceso
+            System.Diagnostics.Process proc = new System.Diagnostics.Process();
+            proc.StartInfo = processStartInfo;
+            proc.Start();
+            // Consigue la salida de la consola(stream) y devuelve una cadena de texto
+            string result = proc.StandardOutput.ReadToEnd();
+            //Console.WriteLine(result);
+            // MessageBox.Show(result);
+            return result;
         }
     }
 }
